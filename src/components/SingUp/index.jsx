@@ -14,7 +14,7 @@ class SingUp extends React.Component {
                     <input className="singu-input" type="text" name="pasword" id="password" placeholder="Repetir Contraseña" />
                     <input type="checkbox" name="agree" id="agree"/>
                     <span></span>
-                    <input className="" type="submit" value="Enviar" />
+                    <button className="">Enviar</button>
                 </form>
             </div>
         );
