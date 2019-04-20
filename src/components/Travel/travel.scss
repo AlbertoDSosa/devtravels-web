@@ -1,0 +1,36 @@
+.travel {
+    position: relative;
+
+    &-img {
+        width: 16em;
+    }
+
+    &-offer {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        padding: 1em;
+        background-color: #19203a;
+        color: white;
+    }
+
+    &-price {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        font-size: 1.4em;
+        background-color: #ffef41;
+        font-weight: bold;
+
+    }
+
+    &-name {
+        text-align: center;
+        padding: 1em;
+        font-weight: bold;
+    }
+}
+
