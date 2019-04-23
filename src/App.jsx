@@ -1,30 +1,12 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Header from './components/Header';
-import Travel from './components/Travel';
+import Layout from './Pages/Layout/';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <div className="travels-container" id="travels">
-          <div className="row">
-            <Travel />
-            <Travel />
-            <Travel />
-          </div>
-          <div className="row">
-            <Travel />
-            <Travel />
-            <Travel />
-          </div>
-          <div className="row">
-            <Travel />
-            <Travel />
-            <Travel />
-          </div>
-        </div>
+        <Layout />
       </div>
     );
   }

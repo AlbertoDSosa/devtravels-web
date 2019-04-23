@@ -2,9 +2,9 @@
 
 import React from 'react'
 import './menu.scss';
-import logo from '../../assets/images/iconoweb.png';
-import MenuList from '../MenuList/';
-import SocialIcon from '../SocialIcon/';
+import logo from '../../../assets/images/iconoweb.png';
+import MenuList from '../../../components/MenuList/';
+import SocialIcon from '../../../components/SocialIcon/';
 
 class Menu extends React.Component {
 

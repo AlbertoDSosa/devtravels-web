@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './travel.scss';
-import madrid from '../../assets/images/madrid.JPG';
+import madrid from '../../../assets/images/madrid.JPG';
 
 class Travel extends React.Component {
     render() {

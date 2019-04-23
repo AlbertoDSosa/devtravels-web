@@ -2,14 +2,12 @@
 
 import React from 'react';
 import './sing-in.scss';
-import airport from '../../assets/images/airport.jpg';
-import AuthForm from '../AuthForm/';
+import AuthForm from '../../components/AuthForm';
 
 class SingIn extends React.Component {
     render() {
         return (
             <div className="singin">
-                <img className="singin-img" src={airport} alt="Airport" />
                 <AuthForm>
                     <h2>SINGIN</h2>
                     <input type="text" name="email" id="email" placeholder="Email" />

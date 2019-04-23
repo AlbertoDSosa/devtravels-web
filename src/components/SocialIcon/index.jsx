@@ -1,17 +1,17 @@
 // SocialIcon Component
 
 import React from 'react';
-import './social-icon.scss';
-const SocialIcon = (props) => {
+import Icon from '../Icon';
+
+function SocialIcon (props) {
     const style = {
-        backgroundColor: props.bcolor
+        backgroundColor: props.bcolor,
+        borderRadius: '50%',
+        padding: '0.4em'
     }
 
     return (
-        <i 
-            className = {`icon icon-${props.iconName} social-icon`}
-            style = {style}
-        ></i>
+        <Icon style={style} iconName={props.iconName}/>
     );
 }
 
