@@ -3,8 +3,10 @@
 import React from 'react';
 import './sing-up.scss';
 import AuthForm from '../../components/AuthForm';
+// import axios from 'axios';
 
 class SingUp extends React.Component {
+    
     render(){
         return (
             <div className="singup">

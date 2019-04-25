@@ -1,5 +1,6 @@
 .travel {
     position: relative;
+    width: 16em;
 
     &-img {
         width: 16em;
@@ -7,7 +8,7 @@
 
     &-offer {
         position: absolute;
-        z-index: 2;
+        z-index: 0;
         top: 0;
         left: 0;
         padding: 1em;
@@ -17,9 +18,9 @@
 
     &-price {
         position: absolute;
-        z-index: 2;
+        z-index: 0;
         top: 0;
-        right: 0;
+        left: 7.2em;
         padding: 1em;
         font-size: 1.4em;
         background-color: #ffef41;

@@ -1,6 +1,7 @@
 // Menu Component
 
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 import './menu.scss';
 import logo from '../../../assets/images/iconoweb.png';
 import MenuList from '../../../components/MenuList/';
@@ -18,9 +19,9 @@ class Menu extends React.Component {
                     </figcaption>
                 </figure>
                 <MenuList >
-                    <li><a href="#travels">Destinos</a></li>
-                    <li><a href="#aboutAs">Quién Somos</a></li>
-                    <li><a href="#where">Donde Estamos</a></li>
+                    <li><Link to="/#travels">Destinos</Link></li>
+                    <li><Link to="/#aboutAs">Quién Somos</Link></li>
+                    <li><Link to="/#where">Donde Estamos</Link></li>
                 </MenuList>
                 <MenuList>
                     <li>

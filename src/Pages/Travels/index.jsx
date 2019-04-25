@@ -9,21 +9,12 @@ class Travels extends React.Component {
     render(){
         return (
             <div className="travels-container" id="travels">
-                <div className="row">
-                    <Travel />
-                    <Travel />
-                    <Travel />
-                </div>
-                <div className="row">
-                    <Travel />
-                    <Travel />
-                    <Travel />
-                </div>
-                <div className="row">
-                    <Travel />
-                    <Travel />
-                    <Travel />
-                </div>
+                <Travel />
+                <Travel />
+                <Travel />
+                <Travel />
+                <Travel />
+                <Travel />
             </div>
         );
     }

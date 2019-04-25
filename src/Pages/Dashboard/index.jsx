@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
                 <h2>Bienvenido a el área de adminitración</h2>
                 <small>Desde aquí podrás crear viajes o gestionar los ya existentes</small>
                 <table travels-table>
-                    <tr>
+                    {/* <tr>
                         <th>ID</th>
                         <th>Viaje</th>
                         <th>Fechas</th>
@@ -31,7 +31,9 @@ class Dashboard extends React.Component {
                         <td><Icon iconName="checkmark" /></td>
                         <td><Icon iconName="bin" /></td>
                     </tr>
-                </table>
+                </table> */}
+
+                
                 <button>Añadir</button>
             </div>
         );
