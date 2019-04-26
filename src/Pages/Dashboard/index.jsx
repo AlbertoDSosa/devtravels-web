@@ -2,16 +2,17 @@
 
 import React from 'react';
 import './dashboard.scss';
-import Icon from  '../../components/Icon';
+// import Icon from  '../../components/Icon';
 
 class Dashboard extends React.Component {
     render() {
+        
         return (
             <div className="dashboard">
                 <h2>Bienvenido a el área de adminitración</h2>
                 <small>Desde aquí podrás crear viajes o gestionar los ya existentes</small>
-                <table travels-table>
-                    {/* <tr>
+                {/* <table travels-table>
+                    <tr>
                         <th>ID</th>
                         <th>Viaje</th>
                         <th>Fechas</th>
@@ -33,7 +34,6 @@ class Dashboard extends React.Component {
                     </tr>
                 </table> */}
 
-                
                 <button>Añadir</button>
             </div>
         );

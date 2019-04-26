@@ -1,14 +1,14 @@
 import React from 'react';
 import './auth-form.scss';
 
-class AuthForm extends React.Component {
-    render() {
-        return (
-            <form className="authForm">
-                {this.props.children}
-            </form>
-        );
-    }
+function AuthForm (props) {
+    
+    return (
+        <form className="authForm" onSubmit={props.onSubmit}>
+            {props.children}
+        </form>
+    );
+
 }
 
 export default AuthForm;

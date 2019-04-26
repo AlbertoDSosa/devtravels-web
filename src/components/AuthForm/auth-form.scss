@@ -1,6 +1,6 @@
 .authForm {
     font-size: 32px;
-    background-color: rgba($color: white, $alpha: 0.3);
+    background-color: rgba($color: white, $alpha: 0.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,24 +34,24 @@
 
     p {
         margin-top: .6em;
-        color: white;
+        color: #282425;
         font-style: italic;
     }
 
-    &-conditions {
-        margin-bottom: .6em;
-        width: 50%; 
-        span {
-            font-size: .6em;
-            font-style: italic;
-        }
+    // &-conditions {
+    //     margin-bottom: .6em;
+    //     width: 50%; 
+    //     span {
+    //         font-size: .6em;
+    //         font-style: italic;
+    //     }
 
-        input[type="checkbox"] {
-            margin: 0;
-            padding: 0;
-            width: 1.5em;
-            background: yellow;
-        }
-    }
+    //     input[type="checkbox"] {
+    //         margin: 0;
+    //         padding: 0;
+    //         width: 1.5em;
+    //         background: yellow;
+    //     }
+    // }
 
 }

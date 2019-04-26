@@ -1,7 +1,7 @@
 import React from 'react';
 import './err.scss';
 
-function Err404 () {
+function Err404 (props) {
     return (
         <div className="err-container">
             <h1>Error 404 Not Fount</h1>
