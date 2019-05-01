@@ -1,27 +1,25 @@
 // SingUp Component
 
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import './sing-up.scss';
 import AuthForm from '../../components/AuthForm';
-// import axios from 'axios';
 import useName from '../../Hooks/useName';
+import { singupAsync} from '../../Redux/Actions/auth';
+
+
 function SingUp (props) {
     const [username, setName] = useName(''); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const { singup } = props;
+    
     const onSubmit = (e) => {
         e.preventDefault();
-
         const body = {username, email, password};
-
-        console.log(body);
-
-        // axios.post('http://localhost:8080/users/', body).then(res => {
-        //    console.log(res)
-        // }).catch(console.error)
+        singup(body);
     }
-
     return (
         <div className="singup">
             <AuthForm onSubmit={onSubmit}>
@@ -59,4 +57,16 @@ function SingUp (props) {
 
 }
 
-export default SingUp;
+const mapStateToProps = (state) => {
+    return {
+      user: state.auth
+    }
+  }
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        singup: (body) => dispatch(singupAsync(body))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingUp);

@@ -1,24 +1,24 @@
 // SingIn Component
 
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
 import './sing-in.scss';
 import AuthForm from '../../components/AuthForm';
+import { singinAsync} from '../../Redux/Actions/auth';
 
 function SingIn (props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const {singin} = props
 
     const onSubmit = (e) => {
         e.preventDefault();
 
         const body = {email,password};
 
-        console.log(body);
+        singin(body);
 
-        // axios.post('http://localhost:8080/users/auth', body).then(res => {
-        //     console.log(res.headers.authorization)
-        //     localStorage.setItem('authorization', res.headers.authorization)
-        // }).catch(console.error)
     }
 
     return (
@@ -48,4 +48,16 @@ function SingIn (props) {
   
 }
 
-export default SingIn;
+const mapStateToProps = (state) => {
+    return {
+      user: state.auth
+    }
+  }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        singin: (body) => dispatch(singinAsync(body))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingIn);

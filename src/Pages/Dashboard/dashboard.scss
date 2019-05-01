@@ -1,6 +1,34 @@
 .dashboard {
-    width: 100%;
-    height: 100%;
+    width: 75vw;
+    height: 100vh;
     background-color: white;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    &-header {
+        margin-bottom: 2em;
+        margin-top: 20vh;
+        font-size: 1.5em;
+    }
+    &-travelList {
+        background:#009cba;
+        padding: .8em;
+        border-radius: .5em;
+        margin-bottom: 2em;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(auto-fill, 1fr);
+        grid-row-gap: 1em;
+
+    }
+    button {
+        font-size: 1.5em;
+        font-style: italic;
+        padding: .5em;
+        color: white;
+        background-color: #19203a;
+    }
 }

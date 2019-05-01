@@ -3,7 +3,11 @@ import './hero.scss';
 
 function Hero (props) {
     const goToTravels = () => {
-        document.querySelector('#travels').scrollIntoView();
+        document.querySelector('#travels').scrollIntoView({
+            behavior: 'smooth'  
+        });
+        let host = window.location.host;
+        window.location.replace(`${host}/#travels`);
     }
     
     return (

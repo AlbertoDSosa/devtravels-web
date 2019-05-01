@@ -2,42 +2,40 @@
 
 import React from 'react';
 import './dashboard.scss';
-// import Icon from  '../../components/Icon';
+import Icon from  '../../components/Icon';
 
-class Dashboard extends React.Component {
-    render() {
-        
-        return (
-            <div className="dashboard">
+function Dashboard () {
+    return (
+        <div className="dashboard">
+            <div className="dashboard-header">
                 <h2>Bienvenido a el área de adminitración</h2>
                 <small>Desde aquí podrás crear viajes o gestionar los ya existentes</small>
-                {/* <table travels-table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Viaje</th>
-                        <th>Fechas</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Imagen</th>
-                        <th>Activado</th>
-                        <th>Eliminar</th>
-                    </tr>
-                    <tr>
-                        <td>2983024</td>
-                        <td>Madrid</td>
-                        <td>16 feb 19</td>
-                        <td>20€ de descuento</td>
-                        <td>130€</td>
-                        <td><Icon iconName="search" /></td>
-                        <td><Icon iconName="checkmark" /></td>
-                        <td><Icon iconName="bin" /></td>
-                    </tr>
-                </table> */}
-
-                <button>Añadir</button>
             </div>
-        );
-    }
+            <div className="dashboard-travelList">
+                <div>ID</div>
+                <div>Viaje</div>
+                <div>Fechas</div>
+                <div>Descripción</div>
+                <div>Precio</div>
+                <div>Oferta</div>
+                <div>Imagen</div>
+                <div className="dasboard-actions">Activado</div>
+                <div className="dasboard-actions">Editar</div>
+                <div className="dasboard-actions">Eliminar</div>
+                <div>2983024</div>
+                <div>Madrid</div>
+                <div>16 feb 19</div>
+                <div>Pasa unos días inolvidables...</div>
+                <div>130€</div>
+                <div>20€ de descuento</div>
+                <div><Icon iconName="eye" /></div>
+                <div><Icon iconName="checkmark" /></div>
+                <div><Icon iconName="pencil" /></div>
+                <div><Icon iconName="bin" /></div>
+            </div>
+            <button>AÑADIR</button>
+        </div>
+    );
 }
 
 export default Dashboard;
