@@ -8,6 +8,7 @@ function useHash (actualHash) {
     }
 
     useEffect(()=>{
+        console.log(hash)
         let el = hash && document.querySelector(hash);
         el && el.scrollIntoView({behavior: 'smooth'});
     });

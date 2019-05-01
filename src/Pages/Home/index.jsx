@@ -6,7 +6,6 @@ import Travels from '../Travels';
 function Home(props) {
     
     let actualHash = props.history.location.hash;
-
     useHash(actualHash);
     
     return (

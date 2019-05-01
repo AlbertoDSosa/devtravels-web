@@ -1,33 +1,26 @@
 import {useState, useEffect} from 'react';
 
 function useScroll(element) {
-    let [scroll, setScroll] = useState(0);
+    const [scroll, setScroll] = useState(0);
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', (e) => {
+        e.preventDefault()
         setScroll(window.scrollY);
     });
 
     useEffect(()=>{
-        console.log(element.current);
-        console.log(scroll);
+        element.current
+            .querySelectorAll('[id]')
+            .forEach((el) => {
+                if(el.offsetTop === scroll) {
+                    // let host = window.location.host;
+                    window
+                        .location
+                        .assign(`http://localhost:3000/#${el.id}`);
+                        console.log(el.id);
+                }
+            });
     });
 }
 
 export default useScroll;
-
-
-// const sectionList = layout.querySelectorAll('[id]');
-// console.log(sectionList)
-// window.addEventListener('scroll', (e) => {
-
-//     let el = document.querySelector('#travels');
-//     let menu = document.querySelector('.nav-menu');
-//     let menuHeight = menu.clientHeight;
-//     let elPositionTop = el.offsetTop - menuHeight;
-//     let scrollPosition = window.scrollY;
-
-//     if(scrollPosition === elPositionTop) {
-//         window.location.assign(`http://localhost:3000/#travels`)
-//     }
-
-// });

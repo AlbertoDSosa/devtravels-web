@@ -2,12 +2,13 @@ import React from 'react';
 import './hero.scss';
 
 function Hero (props) {
-    const goToTravels = () => {
+    const goToTravels = (e) => {
+        e.preventDefault();
         document.querySelector('#travels').scrollIntoView({
             behavior: 'smooth'  
         });
-        let host = window.location.host;
-        window.location.replace(`${host}/#travels`);
+        // let host = window.location.host;
+        window.location.assign(`http://localhost:3000/#travels`);
     }
     
     return (
