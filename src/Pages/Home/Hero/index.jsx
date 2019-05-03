@@ -20,7 +20,6 @@ function Hero (props) {
             <button className="hero-button" onClick={goToTravels}>Ver destinos</button>
         </div>
     );
-
 }
 
 export default Hero;

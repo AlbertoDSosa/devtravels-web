@@ -1,6 +1,7 @@
 import React from 'react';
 import './auth-links.scss';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Icon from '../Icon';
 
 function AuthLinks(props) {
@@ -11,12 +12,24 @@ function AuthLinks(props) {
     }
     return (
         <div className="authLinks-container">
-            <Link to="/singup">singup</Link>
-            |
-            <Link to="/singin">singin</Link>
+            {
+                !props.auth.singup && <Link to="/singup">singup </Link>
+            }
             <Icon iconName="user" style={style} />
+            {
+                !props.auth.singin ? 
+                <Link to="/singin"> singin</Link> :
+                <span>{props.auth.user.username}</span>
+            }
         </div>
     );
 }
 
-export default AuthLinks;
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
+    }
+}
+
+
+export default connect(mapStateToProps)(AuthLinks);

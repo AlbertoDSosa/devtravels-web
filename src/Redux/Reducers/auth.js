@@ -1,6 +1,9 @@
 // Auth Reducer
 
-const initialState = {};
+const initialState = {
+    singup: false,
+    singin: false
+};
 
 export const actionTypes = {
     SINGUP_USER: 'user->SINGUP',
@@ -10,14 +13,31 @@ export const actionTypes = {
 export default (prevState = initialState, action) => {
     switch(action.type) {
         case actionTypes.SINGUP_USER:
-            return {
-                ...prevState,
-                ...action.data
+            if(action.data.err) {
+                return {
+                    ...prevState,
+                    ...action.data
+                }
             }
-            case actionTypes.SINGIN_USER:
+            
             return {
                 ...prevState,
-                ...action.data
+                ...action.data,
+                singup: true
+            }
+
+        case actionTypes.SINGIN_USER:
+            if(action.data.err) {
+                return {
+                    ...prevState,
+                    ...action.data
+                }
+            }
+
+            return {
+                ...prevState,
+                ...action.data,
+                singin: true
             }
         default:
             return prevState;

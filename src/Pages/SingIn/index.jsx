@@ -1,6 +1,6 @@
 // SingIn Component
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import './sing-in.scss';
 import AuthForm from '../../components/AuthForm';
@@ -10,7 +10,11 @@ function SingIn (props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const {singin} = props
+    const {singin} = props;
+
+    useEffect(()=>{
+        if(props.auth.singin) props.history.replace('/');
+    })
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -18,7 +22,6 @@ function SingIn (props) {
         const body = {email,password};
 
         singin(body);
-
     }
 
     return (
@@ -48,15 +51,15 @@ function SingIn (props) {
   
 }
 
-const mapStateToProps = (state) => {
-    return {
-      user: state.auth
-    }
-  }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         singin: (body) => dispatch(singinAsync(body))
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
     }
 }
 

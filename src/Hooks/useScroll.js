@@ -3,8 +3,7 @@ import {useState, useEffect} from 'react';
 function useScroll(element) {
     const [scroll, setScroll] = useState(0);
 
-    window.addEventListener('scroll', (e) => {
-        e.preventDefault()
+    window.addEventListener('scroll', () => {
         setScroll(window.scrollY);
     });
 
@@ -16,8 +15,7 @@ function useScroll(element) {
                     // let host = window.location.host;
                     window
                         .location
-                        .assign(`http://localhost:3000/#${el.id}`);
-                        console.log(el.id);
+                        .replace(`http://localhost:3000/#${el.id}`);
                 }
             });
     });

@@ -2,12 +2,13 @@
 
 import React from 'react';
 import './layout.scss';
+import { connect } from 'react-redux';
 import useScroll from '../../Hooks/useScroll';
 import Menu from './Menu';
 
 function Layout (props) {
     let layoutRef = React.createRef();
-
+    
     useScroll(layoutRef);
 
     return (
@@ -18,4 +19,10 @@ function Layout (props) {
     );
 }
 
-export default Layout;
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Layout);

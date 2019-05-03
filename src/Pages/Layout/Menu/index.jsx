@@ -10,7 +10,6 @@ import AuthLinks from '../../../components/AuthLinks/';
 
 function Menu (props) {
 
-   
     return (
         <div className="nav-menu">
             <figure className="logo">

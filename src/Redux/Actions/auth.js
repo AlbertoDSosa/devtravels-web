@@ -15,11 +15,11 @@ export function singupAsync (body) {
         axios
             .post('http://localhost:8080/user/singup', body)
             .then((res) => {
-                dispatch(singup(res.data))
+                dispatch(singup(res.data));
             })
-            .catch((err)=>{
-                console.log(err)
-            })
+            .catch((error) => {
+                dispatch(singup(error.response.data));
+            });
         
    } 
 }
@@ -45,9 +45,9 @@ export function singinAsync (body) {
                         res.headers.authorization
                     );
             })
-            .catch((err)=>{
-                console.log(err)
-            })
+            .catch((error)=>{
+                dispatch(singup(error.response.data));
+            });
         return {
             type: actionTypes.SINGIN_ASYNC_USER
         }

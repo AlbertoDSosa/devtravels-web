@@ -1,6 +1,6 @@
 // SingUp Component
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import './sing-up.scss';
 import AuthForm from '../../components/AuthForm';
@@ -14,12 +14,17 @@ function SingUp (props) {
     const [password, setPassword] = useState('');
 
     const { singup } = props;
-    
+
+    useEffect(()=>{
+        if(props.auth.singup) props.history.replace('/singin'); 
+    })
+
     const onSubmit = (e) => {
         e.preventDefault();
         const body = {username, email, password};
         singup(body);
     }
+
     return (
         <div className="singup">
             <AuthForm onSubmit={onSubmit}>
@@ -57,15 +62,15 @@ function SingUp (props) {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-      user: state.auth
-    }
-  }
-
 const mapDispatchToProps = (dispatch, props) => {
     return {
         singup: (body) => dispatch(singupAsync(body))
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
     }
 }
 
