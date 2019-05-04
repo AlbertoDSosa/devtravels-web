@@ -37,13 +37,11 @@ export function singinAsync (body) {
         axios
             .post('http://localhost:8080/user/singin', body)
             .then((res) => {
-                dispatch(singin(res.data))
+                dispatch(singin({
+                    ...res.data,
+                    token: res.headers.authorization
+                }));
 
-                localStorage
-                    .setItem(
-                        'authorization',
-                        res.headers.authorization
-                    );
             })
             .catch((error)=>{
                 dispatch(singup(error.response.data));

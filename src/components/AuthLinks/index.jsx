@@ -13,12 +13,12 @@ function AuthLinks(props) {
     return (
         <div className="authLinks-container">
             {
-                !props.auth.singup && <Link to="/singup">singup </Link>
+                !props.auth.singup && <Link to="/singup">Registro </Link>
             }
             <Icon iconName="user" style={style} />
             {
                 !props.auth.singin ? 
-                <Link to="/singin"> singin</Link> :
+                <Link to="/singin"> Login</Link> :
                 <span>{props.auth.user.username}</span>
             }
         </div>
