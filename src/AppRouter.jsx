@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from './Routes/PrivateRoute';
+import Profile from './Pages/Profile';
 import Layout from './Pages/Layout';
 import SingIn from './Pages/SingIn';
 import SingUp from './Pages/SingUp';
@@ -18,6 +20,7 @@ function AppRouter(props) {
             <Route path="/" exact component={Home} />
             <Route path="/singin" exact component={SingIn} />
             <Route path="/singup" exact component={SingUp} />
+            <PrivateRoute path="/profile" exact component={Profile} />
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="*" component={Error404} />
           </Switch>

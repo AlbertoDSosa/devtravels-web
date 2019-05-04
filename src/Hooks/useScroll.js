@@ -7,15 +7,14 @@ function useScroll(element) {
         setScroll(window.scrollY);
     });
 
-    useEffect(()=>{
+    useEffect(() => {
         element.current
             .querySelectorAll('[id]')
             .forEach((el) => {
                 if(el.offsetTop === scroll) {
-                    // let host = window.location.host;
                     window
                         .location
-                        .replace(`http://localhost:3000/#${el.id}`);
+                        .replace(`/#${el.id}`);
                 }
             });
     });

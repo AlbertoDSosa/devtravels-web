@@ -7,12 +7,12 @@ function Hero (props) {
             behavior: 'smooth'  
         });
     }
-    
+   
     return (
         <div className="hero-mainContainer">
             <div className="hero-main">
                 <h1 className="hero-slogan">Viaja!</h1>
-                <small className="hero-description">Descubre lugares maravillosos!</small>
+                <small className="hero-description">¡Descubre lugares maravillosos!</small>
             </div>
             <button className="hero-button" onClick={goToTravels}>Ver destinos</button>
         </div>
