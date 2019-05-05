@@ -7,7 +7,8 @@ const initialState = {
 
 export const actionTypes = {
     SINGUP_USER: 'user->SINGUP',
-    SINGIN_USER: 'user->SINGIN'
+    SINGIN_USER: 'user->SINGIN',
+    SINGOUT_USER: 'user->SINGOUT'
 }
 
 export default (prevState = initialState, action) => {
@@ -37,8 +38,11 @@ export default (prevState = initialState, action) => {
             return {
                 ...prevState,
                 ...action.data,
-                singin: true
+                singin: true,
+                singup: true
             }
+        case actionTypes.SINGOUT_USER:
+            return initialState;
         default:
             return prevState;
     }

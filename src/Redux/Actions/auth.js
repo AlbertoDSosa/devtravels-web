@@ -3,7 +3,7 @@
 import { actionTypes } from '../Reducers/auth';
 import axios from 'axios';
 
-export const singup = (data)=> {
+const singup = (data)=> {
     return {
         type: actionTypes.SINGUP_USER,
         data 
@@ -24,7 +24,7 @@ export function singupAsync (body) {
    } 
 }
 
-export const singin = (data)=> {
+const singin = (data)=> {
     return {
         type: actionTypes.SINGIN_USER,
         data 
@@ -33,7 +33,7 @@ export const singin = (data)=> {
 
 
 export function singinAsync (body) {
-   return (dispatch) => {
+    return (dispatch) => {
         axios
             .post('http://localhost:8080/user/singin', body)
             .then((res) => {
@@ -44,10 +44,14 @@ export function singinAsync (body) {
 
             })
             .catch((error)=>{
-                dispatch(singup(error.response.data));
+                dispatch(singin(error.response.data));
             });
-        return {
-            type: actionTypes.SINGIN_ASYNC_USER
-        }
+       
    } 
+}
+
+export const singout = () => {
+    return {
+        type: actionTypes.SINGOUT_USER 
+    }   
 }

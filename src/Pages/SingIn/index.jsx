@@ -27,7 +27,7 @@ function SingIn (props) {
     return (
         <div className="singin">
             <AuthForm onSubmit={onSubmit}>
-                <h2>SINGIN</h2>
+                <h2>LOGIN</h2>
                 <input
                     type="email"
                     name="email"

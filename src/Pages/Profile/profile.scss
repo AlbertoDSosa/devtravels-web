@@ -1,2 +1,15 @@
 // Profile Styles
 
+.profile-container {
+    margin-top: 20vh;
+    margin-left: 3em;
+    h1 {
+        font-size: 3em;
+        padding: .6em;
+    }
+
+    p {
+        font-size: 2em;
+        font-style: italic;
+    }
+}

@@ -1,8 +1,12 @@
 .authLinks-container {
     font-size: 1.5em;
-    a, span {
+    a {
         padding: .5em;
         color: #282425;
+    }
+
+    button {
+        all: unset;
     }
 
 }   

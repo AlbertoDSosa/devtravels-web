@@ -28,7 +28,7 @@ function SingUp (props) {
     return (
         <div className="singup">
             <AuthForm onSubmit={onSubmit}>
-                <h2>SINGUP</h2>
+                <h2>REGISTRO</h2>
                 <input 
                     type="text"
                     name="username"
