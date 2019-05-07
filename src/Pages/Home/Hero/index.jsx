@@ -9,13 +9,13 @@ function Hero (props) {
     }
    
     return (
-        <div className="hero-mainContainer">
+        <section className="hero-mainContainer" id="home">
             <div className="hero-main">
                 <h1 className="hero-slogan">Viaja!</h1>
                 <small className="hero-description">¡Descubre lugares maravillosos!</small>
             </div>
             <button className="hero-button" onClick={goToTravels}>Ver destinos</button>
-        </div>
+        </section>
     );
 }
 

@@ -8,7 +8,7 @@ function PrivateRoute ({component: Component, ...rest})  {
             {...rest}
             render={(props) => {
                 // eslint-disable-next-line no-unused-expressions
-                return rest.auth.singin ? (
+                return rest.auth.isLogged ? (
                     <Component {...props}/>
                 ) : (
                     <Redirect to={{

@@ -2,15 +2,13 @@
 
 import React from 'react';
 import './layout.scss';
-import { connect } from 'react-redux';
 import useScroll from '../../Hooks/useScroll';
+import { connect } from 'react-redux';
 import Menu from './Menu';
 
 function Layout (props) {
-    let layoutRef = React.createRef();
-    
+    const layoutRef = React.createRef();
     useScroll(layoutRef);
-
     return (
         <div ref={layoutRef} className="layout">
             <Menu />

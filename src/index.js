@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import './index.scss';
 import AppRouter from './AppRouter';
-import createStore from './Redux';
+import store from './Redux';
 import {saveState} from './Redux/storageState';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore();
 
 store.subscribe( function () {
-    saveState(store.getState())
+    saveState(store.getState());
 });
 
 ReactDOM.render(

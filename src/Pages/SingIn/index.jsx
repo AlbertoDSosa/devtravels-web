@@ -4,29 +4,33 @@ import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import './sing-in.scss';
 import AuthForm from '../../components/AuthForm';
-import { singinAsync} from '../../Redux/Actions/auth';
+import { singIn } from '../../Redux/Actions/auth';
 
 function SingIn (props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null)
 
-    const {singin} = props;
+    const { singin } = props;
 
     useEffect(()=>{
-        if(props.auth.singin) props.history.replace('/');
+        if(props.auth.isLogged) props.history.replace('/');
     })
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const body = {email,password};
+        const body = { email, password };
 
-        singin(body);
+        singin(body)
+            .catch(err => {
+                setError(err.response.data);
+            });
     }
 
     return (
         <div className="singin">
-            <AuthForm onSubmit={onSubmit}>
+            <AuthForm onSubmit={onSubmit} error={error}>
                 <h2>LOGIN</h2>
                 <input
                     type="email"
@@ -53,7 +57,7 @@ function SingIn (props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        singin: (body) => dispatch(singinAsync(body))
+        singin: (body) => singIn(dispatch, body)
     }
 }
 

@@ -8,14 +8,14 @@ import Travel from './Travel'
 function Travels (props) {
     
     return (
-        <div className="travels-container" id="travels">
+        <section className="travels-container" id="travels">
             <Travel />
             <Travel />
             <Travel />
             <Travel />
             <Travel />
             <Travel />
-        </div>
+        </section>
     );
 
 }

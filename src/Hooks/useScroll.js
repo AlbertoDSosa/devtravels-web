@@ -2,14 +2,15 @@ import {useState, useEffect} from 'react';
 
 function useScroll(element) {
     const [scroll, setScroll] = useState(0);
-
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
         setScroll(window.scrollY);
-    });
-
+    }
+    
+    window.addEventListener('scroll', onScroll);
+    
     useEffect(() => {
         element.current
-            .querySelectorAll('[id]')
+            .querySelectorAll('section[id]')
             .forEach((el) => {
                 if(el.offsetTop === scroll) {
                     window
@@ -17,6 +18,10 @@ function useScroll(element) {
                         .replace(`/#${el.id}`);
                 }
             });
+
+            return () => {
+                window.removeEventListener('scroll', onScroll);
+            }
     });
 }
 

@@ -1,7 +1,9 @@
 import {useEffect, useState } from 'react';
 
-function useHash (actualHash) {
+function useHash () {
     const [hash, setHash] = useState('');
+
+    let actualHash = window.location.hash;
     
     if(actualHash !== hash) {
         setHash(actualHash);

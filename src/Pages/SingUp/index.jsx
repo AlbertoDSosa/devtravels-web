@@ -1,38 +1,52 @@
 // SingUp Component
 
 import React, {useState, useEffect} from 'react';
-import { connect } from 'react-redux';
 import './sing-up.scss';
 import AuthForm from '../../components/AuthForm';
 import useName from '../../Hooks/useName';
-import { singupAsync} from '../../Redux/Actions/auth';
+import { singUp } from '../../Request/singup';
 
 
 function SingUp (props) {
     const [username, setName] = useName(''); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const { singup } = props;
-
-    useEffect(()=>{
-        if(props.auth.singup) props.history.replace('/singin'); 
-    })
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState(null);
 
     const onSubmit = (e) => {
+        setError(null);
+        setMessage('');
+
         e.preventDefault();
         const body = {username, email, password};
-        singup(body);
+
+        singUp(body)
+            .then(res =>{
+                setMessage(res.data.message);
+            })
+            .catch(err => {
+                setError(err.response.data);
+            });
     }
+
+    useEffect(()=> {
+        if(message && !error) {
+            setEmail('');
+            setName('');
+            setPassword('');
+        }
+    }, [error, message]);
 
     return (
         <div className="singup">
-            <AuthForm onSubmit={onSubmit}>
+            <AuthForm onSubmit={onSubmit} error={error} message={message}>
                 <h2>REGISTRO</h2>
                 <input 
                     type="text"
                     name="username"
                     id="username"
+                    value={username}
                     placeholder="Nombre de usuario"
                     onChange={(e) => setName(e.target.value)}
                 />
@@ -41,6 +55,7 @@ function SingUp (props) {
                     name="email"
                     id="email"
                     placeholder="Email"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
@@ -48,6 +63,7 @@ function SingUp (props) {
                     name="pasword"
                     id="password"
                     placeholder="Contraseña"
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
@@ -62,16 +78,5 @@ function SingUp (props) {
 
 }
 
-const mapDispatchToProps = (dispatch, props) => {
-    return {
-        singup: (body) => dispatch(singupAsync(body))
-    }
-}
 
-const mapStateToProps = (state) => {
-    return {
-      auth: state.auth
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingUp);
+export default SingUp;

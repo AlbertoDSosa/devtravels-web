@@ -19,11 +19,11 @@ function AuthLinks(props) {
     return (
         <div className="authLinks-container">
             {
-                !props.auth.singup && <Link to="/singup">Registro </Link>
+                !props.auth.isLogged && <Link to="/singup">Registro </Link>
             }
             <Icon iconName="user" style={style} />
             {
-                !props.auth.singin ? 
+                !props.auth.isLogged ? 
                 <Link to="/singin"> Login</Link> : 
                 <span>
                     <Link to="/profile">{props.auth.user.username}</Link>
