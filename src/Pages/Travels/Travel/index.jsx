@@ -9,14 +9,14 @@ function Travel (props) {
     return (
         <figure className="travel">
             <span className="travel-price">
-                130€
+                {parseInt(props.travel.price) + '€'}
             </span>
             <span className="travel-offer">
                 Save 20€ pay only
             </span>
-            <img className="travel-img" src={madrid} alt="Madrid" />
+            <img className="travel-img" src={madrid} alt="" />
             <figcaption className="travel-name">
-                Madrid
+                {props.travel.travelname}
             </figcaption>
         </figure>
     );
