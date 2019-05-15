@@ -12,7 +12,8 @@ export const singIn = async (dispatch, body)=> {
                             )
     dispatch({
         type: actionTypes.SINGIN_USER,
-        data: response.data
+        data: response.data,
+        token: response.headers.authorization
     });
 
     return response;

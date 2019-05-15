@@ -2,7 +2,8 @@
 
 const initialState = {
     isLogged: false,
-    user: null
+    user: null,
+    token: ''
 };
 
 export const actionTypes = {
@@ -18,7 +19,8 @@ export default (prevState = initialState, action) => {
             return {
                 ...prevState,
                 user: action.data.user,
-                isLogged: true
+                isLogged: true,
+                token: action.token
             }
         case actionTypes.SINGOUT_USER:
             return initialState;
