@@ -2,40 +2,65 @@
 
 import React from 'react';
 import './dashboard.scss';
-import Icon from  '../../components/Icon';
+import { connect } from 'react-redux';
+import TravelItem from './TravelItem'
+import {getDashboardTravels} from '../../Request/travel'
 
-function Dashboard () {
-    return (
-        <div className="dashboard">
-            <div className="dashboard-header">
-                <h2>Bienvenido a el área de adminitración</h2>
-                <small>Desde aquí podrás crear viajes o gestionar los ya existentes</small>
+
+class  Dashboard extends React.Component {
+
+    state = {
+        travels: [],
+        token: this.props.auth.token
+    }
+    componentDidMount () {
+        getDashboardTravels(this.state.token)
+        .then(res => {
+            this.setState({
+                travels: res
+            })
+        })
+        .catch(err => console.err)
+    }
+
+    render() {
+        
+        return (
+            <div className="dashboard">
+                <div className="dashboard-header">
+                    <h2>Bienvenido a el área de adminitración</h2>
+                    <small>Desde aquí podrás crear viajes o gestionar los ya existentes</small>
+                </div>
+                <div className="dashboard-travelList">
+                    <div className="dashboard-travelListHeader">
+                        <div>ID</div>
+                        <div>Viaje</div>
+                        <div>Fechas</div>
+                        <div>Descripción</div>
+                        <div>Precio</div>
+                        <div>Oferta</div>
+                        <div>Imagen</div>
+                        <div className="dasboard-actions">Activado</div>
+                        <div className="dasboard-actions">Editar</div>
+                        <div className="dasboard-actions">Eliminar</div>
+                    </div>
+                    {
+                        this.state.travels.map(travel => {
+                            return <TravelItem {...travel} key={travel._id} />   
+                        })
+                    }
+                    
+                </div>
+                <button>AÑADIR</button>
             </div>
-            <div className="dashboard-travelList">
-                <div>ID</div>
-                <div>Viaje</div>
-                <div>Fechas</div>
-                <div>Descripción</div>
-                <div>Precio</div>
-                <div>Oferta</div>
-                <div>Imagen</div>
-                <div className="dasboard-actions">Activado</div>
-                <div className="dasboard-actions">Editar</div>
-                <div className="dasboard-actions">Eliminar</div>
-                <div>2983024</div>
-                <div>Madrid</div>
-                <div>16 feb 19</div>
-                <div>Pasa unos días inolvidables...</div>
-                <div>130€</div>
-                <div>20€ de descuento</div>
-                <div><Icon iconName="eye" /></div>
-                <div><Icon iconName="checkmark" /></div>
-                <div><Icon iconName="pencil" /></div>
-                <div><Icon iconName="bin" /></div>
-            </div>
-            <button>AÑADIR</button>
-        </div>
-    );
+        )
+    }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard);

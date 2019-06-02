@@ -12,18 +12,22 @@
         margin-top: 20vh;
         font-size: 1.5em;
     }
-    &-travelList {
-        background:#009cba;
-        padding: .8em;
-        border-radius: .5em;
-        margin-bottom: 2em;
-        display: grid;
-        justify-content: center;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(auto-fill, 1fr);
-        grid-row-gap: 1em;
 
+    &-travelList {
+      background:#009cba;
+      padding: .8em;
+      border-radius: .5em;
+      margin-bottom: 2em;
     }
+
+    &-travelListHeader {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: 1fr;
+      grid-row-gap: 1em;
+    }
+
     button {
         font-size: 1.5em;
         font-style: italic;
